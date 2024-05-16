@@ -10,9 +10,11 @@ Plug ('polirritmico/monokai-nightasty.nvim')
 
 -- Language plugins
 Plug ('edwinb/idris2-vim')
-
+Plug ('iamcco/markdown-preview.nvim', { ['do'] = 'cd app && npx --yes yarn install'})
 -- Developer plugins
 Plug ('nvim-tree/nvim-tree.lua')
+Plug ('nvim-lua/plenary.nvim')
+Plug ('nvim-telescope/telescope.nvim')
 
 vim.call('plug#end')
 
@@ -44,10 +46,14 @@ require("nvim-tree").setup({
   },
 })
 
-vim.api.nvim_set_keymap(
-  "n",
-  "<C-t>",
-  ":NvimTreeToggle<cr>",
-  { noremap = true }
- )
+vim.api.nvim_set_keymap("n","t", ":NvimTreeToggle<cr>", { noremap = true })
+vim.api.nvim_set_keymap("n","<C-s>", ":MarkdownPreview<cr>", { noremap = true })
+vim.api.nvim_set_keymap("n","<M-s>", ":MarkdownPreviewStop<cr>", { noremap = true })
+vim.api.nvim_set_keymap("n","<M-p>", ":MarkdownPreviewToggle<cr>", { noremap = true })
 
+local builtin = require('telescope.builtin')
+
+vim.keymap.set('n', '<leader>ff', builtin.find_files, {})
+vim.keymap.set('n', '<leader>fg', builtin.live_grep, {})
+vim.keymap.set('n', '<leader>fb', builtin.buffers, {})
+vim.keymap.set('n', '<leader>fh', builtin.help_tags, {})
