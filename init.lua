@@ -11,6 +11,8 @@ Plug ('polirritmico/monokai-nightasty.nvim')
 -- Language plugins
 Plug ('edwinb/idris2-vim')
 Plug ('iamcco/markdown-preview.nvim', { ['do'] = 'cd app && npx --yes yarn install'})
+Plug ('neoclide/coc.nvim', {['do'] = 'yarn install --frozen-lockfile'})
+
 -- Developer plugins
 Plug ('nvim-tree/nvim-tree.lua')
 Plug ('nvim-lua/plenary.nvim')
