@@ -15,12 +15,17 @@ Plug ('iamcco/markdown-preview.nvim', { ['do'] = 'cd app && npx --yes yarn insta
 Plug ('nvim-tree/nvim-tree.lua')
 Plug ('nvim-lua/plenary.nvim')
 Plug ('nvim-telescope/telescope.nvim')
+Plug ('startup-nvim/startup.nvim')
 
 vim.call('plug#end')
 
 -- Colors Scheme configuration
 vim.opt.background = "dark" -- default to dark or light style
 vim.cmd.colorscheme("monokai-nightasty")
+
+-- Startup config
+--
+require("startup").setup({theme = "startify"})
 
 -- Nvim tree configuration
 
@@ -46,12 +51,15 @@ require("nvim-tree").setup({
   },
 })
 
+-- Key mapping
+
+local builtin = require('telescope.builtin')
+
 vim.api.nvim_set_keymap("n","t", ":NvimTreeToggle<cr>", { noremap = true })
 vim.api.nvim_set_keymap("n","<C-s>", ":MarkdownPreview<cr>", { noremap = true })
 vim.api.nvim_set_keymap("n","<M-s>", ":MarkdownPreviewStop<cr>", { noremap = true })
 vim.api.nvim_set_keymap("n","<M-p>", ":MarkdownPreviewToggle<cr>", { noremap = true })
 
-local builtin = require('telescope.builtin')
 
 vim.keymap.set('n', '<leader>ff', builtin.find_files, {})
 vim.keymap.set('n', '<leader>fg', builtin.live_grep, {})
