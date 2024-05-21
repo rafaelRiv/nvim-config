@@ -21,6 +21,7 @@ Plug ('nvim-tree/nvim-tree.lua')
 Plug ('nvim-lua/plenary.nvim')
 Plug ('nvim-telescope/telescope.nvim')
 Plug ('startup-nvim/startup.nvim')
+Plug ('vmchale/ats-vim')
 
 vim.call('plug#end')
 
