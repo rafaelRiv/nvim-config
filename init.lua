@@ -36,6 +36,8 @@ require("startup").setup({theme = "startify"})
 -- Set tab space
 vim.opt.tabstop = 2
 vim.opt.shiftwidth = 2
+vim.opt.expandtab = true
+vim.bo.softtabstop = 2
 
 -- Nvim tree configuration
 
