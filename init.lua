@@ -22,6 +22,7 @@ Plug ('nvim-lua/plenary.nvim')
 Plug ('nvim-telescope/telescope.nvim')
 Plug ('startup-nvim/startup.nvim')
 Plug ('vmchale/ats-vim')
+Plug ('prettier/vim-prettier', { ['do'] = 'yarn install --frozen-lockfile --production', ['branch'] = 'release/0.x'})
 
 vim.call('plug#end')
 
